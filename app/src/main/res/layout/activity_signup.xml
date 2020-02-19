@@ -9,19 +9,27 @@
     tools:context=".SignupActivity">
 
     <EditText
-        android:id="@+id/signup_email"
+        android:id="@+id/signup_nickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@null"
         android:layout_margin="8dp"
+        android:hint="Nickname" />
+
+    <EditText
+        android:id="@+id/signup_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@null"
         android:hint="E-mail" />
 
     <EditText
         android:id="@+id/signup_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@null"
         android:layout_margin="8dp"
+        android:background="@null"
         android:hint="Password" />
 
     <Button

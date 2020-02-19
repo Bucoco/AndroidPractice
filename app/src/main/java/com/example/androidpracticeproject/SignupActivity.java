@@ -23,13 +23,14 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore mStore = FirebaseFirestore.getInstance();
-    private EditText mEmailText, mPasswordText;
+    private EditText mNickname, mEmailText, mPasswordText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+        mNickname = findViewById(R.id.signup_nickname);
         mEmailText = findViewById(R.id.signup_email);
         mPasswordText = findViewById(R.id.signup_password);
         findViewById(R.id.signup_success).setOnClickListener(this);
@@ -47,6 +48,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                             if (user != null) {
                                 Map<String, Object> userMap = new HashMap<>();
                                 userMap.put(FirebaseID.documentId, user.getUid());
+                                userMap.put(FirebaseID.nickname, mNickname.getText().toString());
                                 userMap.put(FirebaseID.email, mEmailText.getText().toString());
                                 userMap.put(FirebaseID.password, mPasswordText.getText().toString());
                                 mStore.collection(FirebaseID.user).document(user.getUid()).set(userMap, SetOptions.merge());
